@@ -18,7 +18,7 @@ public class forceTest : MonoBehaviour {
 	void Update () {
 
 		if (Input.GetKeyDown (action)) {
-			rb.AddForce (Vector3.up * 1100);	
+			rb.AddForce (transform.up* 1500);	
 		}
 		
 	}
