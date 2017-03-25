@@ -5,11 +5,13 @@ using UnityEngine;
 public class forceTest : MonoBehaviour {
 
 	private Rigidbody rb; 
-	public KeyCode action;
+	private KeyCode action;
+	public GameObject parent;
 
 	// Use this for initialization
 	void Start () {
 
+		action = parent.GetComponent<keyCodeScript> ().action;
 		rb = GetComponent<Rigidbody> ();
 		
 	}
@@ -42,5 +44,9 @@ public class forceTest : MonoBehaviour {
 
 	void OnTriggerStay(Collider other){
 		
+	}
+
+	void OnCollision(Collision other){
+		other.gameObject.GetComponent<Rigidbody> ().AddForce (Vector3.right * 20);
 	}
 }
