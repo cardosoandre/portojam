@@ -2,26 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class Team
+{
+	public int id;
+	public int numberOfTouches;
+	public int points;
+	public List<KeyCode> keys;
 
-	public struct Team
+	public Team(int tid, KeyCode[] teamKeys)
 	{
-		public int numberOfTouches;
-		public int points;
-		public List<KeyCode> keys;
+		this.id = tid;
+		this.numberOfTouches = 0;
+		this.points = 0;
+		this.keys = new List<KeyCode>();
 
-		public Team(KeyCode[] teamKeys)
+		foreach (KeyCode key in teamKeys)
 		{
-			this.numberOfTouches = 0;
-			this.points = 0;
-			this.keys = new List<KeyCode>();
-
-			foreach (KeyCode key in teamKeys)
-			{
-				this.keys.Add(key);
-			}
+			this.keys.Add(key);
 		}
 	}
+}
+
+public class GameManager : MonoBehaviour {
 
 	public Team teamONE;
 	public Team teamTWO;
@@ -32,12 +34,28 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		teamONE = new Team (teamOneKeys);
-		teamTWO = new Team (teamTwoKeys);
+		teamONE = new Team (1, teamOneKeys);
+		teamTWO = new Team (2, teamTwoKeys);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	void Reset ()
+	{
+		
+	}
+
+	public void Score(int tid)
+	{
+		if (tid == 1) {
+			teamONE.points++;
+		} else if (tid == 2) {
+			teamTWO.points++;
+		}
+
+		Reset();
 	}
 }
