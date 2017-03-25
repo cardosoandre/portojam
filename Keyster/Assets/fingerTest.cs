@@ -12,39 +12,39 @@ public class fingerTest : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown (KeyCode.A)) {
+		if (Input.GetKey (KeyCode.A)) {
 			print ("apertando A");
 		}
 
-		if (Input.GetKeyDown (KeyCode.S)) {
+		if (Input.GetKey (KeyCode.S)) {
 			print ("apertando S");
 		}
 
-		if (Input.GetKeyDown (KeyCode.D)) {
+		if (Input.GetKey (KeyCode.D)) {
 			print ("apertando D");
 		}
 
-		if (Input.GetKeyDown (KeyCode.F)) {
+		if (Input.GetKey (KeyCode.F)) {
 			print ("apertando F");
 		}
 
-		if (Input.GetKeyDown (KeyCode.G)) {
+		if (Input.GetKey (KeyCode.G)) {
 			print ("apertando G");
 		}
 
-		if (Input.GetKeyDown (KeyCode.H)) {
+		if (Input.GetKey (KeyCode.H)) {
 			print ("apertando H");
 		}
 
-		if (Input.GetKeyDown (KeyCode.J)) {
+		if (Input.GetKey (KeyCode.J)) {
 			print ("apertando J");
 		}
 
-		if (Input.GetKeyDown (KeyCode.K)) {
+		if (Input.GetKey (KeyCode.K)) {
 			print ("apertando K");
 		}
 
-		if (Input.GetKeyDown (KeyCode.L)) {
+		if (Input.GetKey (KeyCode.L)) {
 			print ("apertando L");
 		}
 		
