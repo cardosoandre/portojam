@@ -18,6 +18,9 @@ public class forceTest : MonoBehaviour {
 		rb = GetComponent<Rigidbody> ();
 
 		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager>();
+
+		while (gm.teamONE == null);
+
 		if (gm.teamONE.keys.Contains (action))
 		{
 			team = gm.teamONE;
