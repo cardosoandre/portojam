@@ -32,10 +32,16 @@ public class GameManager : MonoBehaviour {
 	public KeyCode[] teamOneKeys;
 	public KeyCode[] teamTwoKeys;
 
-	// Use this for initialization
-	void Start () {
+	void Awake()
+	{
 		teamONE = new Team (1, teamOneKeys);
 		teamTWO = new Team (2, teamTwoKeys);
+	}
+
+
+	// Use this for initialization
+	void Start () {
+
 	}
 	
 	// Update is called once per frame
