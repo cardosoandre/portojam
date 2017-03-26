@@ -10,6 +10,7 @@ public class forceTest : MonoBehaviour {
 	private Team enemy;
 	private GameManager gm;
 	private Transform pos;
+	public GameObject finger, text; 
 
 	public bool ready;
 	public GameObject parent;
@@ -37,6 +38,8 @@ public class forceTest : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (action) && ready) {
+			text.GetComponent<Animator> ().SetTrigger ("action");
+			finger.GetComponent<Animator> ().SetTrigger ("action");
 			rb.AddForce (transform.up * 1600);
 			gameObject.GetComponentInParent<keyCodeScript> ().Blink ();
 		}
