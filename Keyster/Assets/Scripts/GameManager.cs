@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour {
 	public Team teamTWO;
 
 	public WinCondition winCond;
+	public GameObject endGameText;
 
 	public float time;
 	public int winPoints;
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour {
 	{
 		teamONE = new Team (1, teamOneKeys);
 		teamTWO = new Team (2, teamTwoKeys);
+		endGameText.GetComponent<TextMesh>().text = "";
 	}
 
 
@@ -61,6 +63,11 @@ public class GameManager : MonoBehaviour {
 
 		var timerLabel = GameObject.FindGameObjectWithTag ("timer");
 		int seconds = (int)time;
+		if (seconds < 0) 
+		{
+			seconds = 0;
+		}
+
 		timerLabel.GetComponent<TextMesh> ().text = seconds.ToString ();
 
 		switch (winCond) 
@@ -68,22 +75,25 @@ public class GameManager : MonoBehaviour {
 		case WinCondition.score:
 			if (winPoints <= teamONE.points) 
 			{
-				print ("team 1 won!");
+				endGameText.GetComponent<TextMesh>().text = "Team orange won!";
 			} else if (winPoints <= teamTWO.points) 
 			{
-				print ("team 2 won!");
+				endGameText.GetComponent<TextMesh>().text = "Team blue won!";
 			} 
 			break;
 		case WinCondition.time:
-			if (teamONE.points == teamTWO.points) 
+			if (time < 0)
 			{
-				print ("draw!");
-			} else if (teamTWO.points < teamONE.points) 
-			{
-				print ("team 1 won!");
-			} else 
-			{
-				print ("team 2 won!");
+				if (teamONE.points == teamTWO.points) 
+				{
+					endGameText.GetComponent<TextMesh>().text = "Draw!";
+				} else if (teamTWO.points < teamONE.points) 
+				{
+					endGameText.GetComponent<TextMesh>().text = "Team orange won!";
+				} else 
+				{
+					endGameText.GetComponent<TextMesh>().text = "Team blue won!";
+				}
 			}
 			break;
 		}

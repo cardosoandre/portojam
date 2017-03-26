@@ -2,9 +2,8 @@
 -target:library
 -nowarn:0169
 -langversion:4
--out:'Temp/Assembly-CSharp.dll'
+-out:'Temp/Assembly-CSharp-firstpass.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Managed/UnityEngine.dll'
--r:'Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll'
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll'
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll'
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll'
@@ -15,7 +14,7 @@
 -define:UNITY_5_3_OR_NEWER
 -define:UNITY_5_4_OR_NEWER
 -define:UNITY_5_5_OR_NEWER
--define:UNITY_5_5_0
+-define:UNITY_5_5_1
 -define:UNITY_5_5
 -define:UNITY_5
 -define:UNITY_64
@@ -78,20 +77,15 @@
 -define:UNITY_EDITOR_64
 -define:UNITY_EDITOR_OSX
 -define:UNITY_TEAM_LICENSE
-'Assets/Scripts/GameManager.cs'
-'Assets/Scripts/SpringManager.cs'
-'Assets/Scripts/bombScript.cs'
-'Assets/Scripts/cameraShake.cs'
-'Assets/Scripts/dedoColor.cs'
-'Assets/Scripts/destroyMe.cs'
-'Assets/Scripts/fingerTest.cs'
-'Assets/Scripts/forceTest.cs'
-'Assets/Scripts/goalScript.cs'
-'Assets/Scripts/indicatorTextScript.cs'
-'Assets/Scripts/keyCodeScript.cs'
-'Assets/Scripts/playerInput.cs'
-'Assets/Scripts/spawnerScript.cs'
-'Assets/loadScenesScript.cs'
+'Assets/Standard Assets/Environment/Water (Basic)/Scripts/WaterBasic.cs'
+'Assets/Standard Assets/Environment/Water/Water/Scripts/Displace.cs'
+'Assets/Standard Assets/Environment/Water/Water/Scripts/GerstnerDisplace.cs'
+'Assets/Standard Assets/Environment/Water/Water/Scripts/MeshContainer.cs'
+'Assets/Standard Assets/Environment/Water/Water/Scripts/PlanarReflection.cs'
+'Assets/Standard Assets/Environment/Water/Water/Scripts/SpecularLighting.cs'
+'Assets/Standard Assets/Environment/Water/Water/Scripts/Water.cs'
+'Assets/Standard Assets/Environment/Water/Water/Scripts/WaterBase.cs'
+'Assets/Standard Assets/Environment/Water/Water/Scripts/WaterTile.cs'
 -r:'/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/System.Xml.Linq.dll'
 -r:'/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/UnityScript.dll'
