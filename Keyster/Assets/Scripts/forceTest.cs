@@ -16,7 +16,6 @@ public class forceTest : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		GetComponent<MeshRenderer> ().enabled = false;
 		ready = true;
 
 		action = parent.GetComponent<keyCodeScript> ().action;
@@ -38,10 +37,8 @@ public class forceTest : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (action) && ready) {
-			GetComponent<MeshRenderer> ().enabled = true;
 			rb.AddForce (transform.up * 1600);
 			gameObject.GetComponentInParent<keyCodeScript> ().Blink ();
-			Invoke ("Mesh", 0.2f);
 		}
 	}
 		
@@ -69,6 +66,5 @@ public class forceTest : MonoBehaviour {
 	}
 
 	void Mesh(){
-		GetComponent<MeshRenderer> ().enabled = false;
 	}
 }
