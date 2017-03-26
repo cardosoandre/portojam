@@ -39,15 +39,21 @@ public class bombScript : MonoBehaviour {
 		if (8 < timer) 
 		{
 			Invoke ("Blink", 1f);
-		}
-		else if (3 < timer)
+		} else if (3 < timer) 
 		{
 			Invoke ("Blink", 0.5f);
-		}
-		else
+		} else if (0 < timer) 
 		{
 			Invoke ("Blink", 0.25f);
+		} else
+		{
+			Invoke ("Red", 0.2f);
 		}
+	}
+
+	void Red()
+	{
+		gameObject.GetComponent<MeshRenderer> ().material.color = Color.red;
 	}
 
 	void BlinkBack()
@@ -57,13 +63,19 @@ public class bombScript : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other)
 	{
-		if (shouldExplode) 
-		{
-			if (other.gameObject.CompareTag ("Player")) 
-			{
+
+	}
+
+	void OnTriggerStay(Collider other)
+	{
+		if (other.gameObject.CompareTag ("ground")) {
+			if (shouldExplode) {
 				Instantiate (explosion, gameObject.transform.position, Quaternion.identity);
+				other.gameObject.GetComponentInParent<keyCodeScript> ().Disable ();
 				Destroy (gameObject);
 			}
-		}
+
+			timer = timer - 0.005f;
+		} 
 	}
 }

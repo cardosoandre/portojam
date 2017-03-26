@@ -28,7 +28,7 @@ public class spawnerScript : MonoBehaviour {
 		v.z += (delta /2) * Mathf.Sin (Time.time * speed/2);
 		transform.position = v;
 
-		if (12 < timer) 
+		if (7 < timer) 
 		{
 			Ball ();
 			timer = 0;

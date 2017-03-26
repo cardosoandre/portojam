@@ -6,15 +6,23 @@ public class keyCodeScript : MonoBehaviour {
 
 	public KeyCode action;
 	private Color originalColor;
+	private Color targetColor;
 
 	// Use this for initialization
 	void Start () {
 		originalColor = gameObject.GetComponent<MeshRenderer> ().material.color;
+		targetColor = originalColor;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		gameObject.GetComponent<MeshRenderer> ().material.color = targetColor;
+	}
+
+	public void Disable()
+	{
+		targetColor = Color.gray;
+		gameObject.GetComponentInChildren<forceTest> ().enabled = false;
 	}
 
 	public void Blink()
