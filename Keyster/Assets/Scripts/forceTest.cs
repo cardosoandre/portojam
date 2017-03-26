@@ -48,13 +48,6 @@ public class forceTest : MonoBehaviour {
 	void OnCollisionEnter(Collision other)
 	{
 		if (other.gameObject.CompareTag ("ball")) {
-			team.numberOfTouches++;
-			enemy.numberOfTouches = 0;
-
-			if (gm.maxNumOfTouches < team.numberOfTouches)
-			{
-				gm.Score (enemy.id);
-			}
 			ready = false;
 		}
 		if (other.gameObject.CompareTag ("playerBase")) {
@@ -62,10 +55,14 @@ public class forceTest : MonoBehaviour {
 		}
 	}
 
+	public void Disable()
+	{
+		gm.Score (enemy.id);
+		this.enabled = false;
+	}
+
 	void OnCollision(Collision other){
 		other.gameObject.GetComponent<Rigidbody> ().AddForce (Vector3.right * 20);
-
-
 	}
 
 	void Mesh(){

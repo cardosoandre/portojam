@@ -22,7 +22,7 @@ public class keyCodeScript : MonoBehaviour {
 	public void Disable()
 	{
 		targetColor = Color.gray;
-		gameObject.GetComponentInChildren<forceTest> ().enabled = false;
+		gameObject.GetComponentInChildren<forceTest> ().Disable ();
 	}
 
 	public void Blink()
