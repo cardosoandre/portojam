@@ -37,6 +37,7 @@ public class spawnerScript : MonoBehaviour {
 	}
 
 	public void Ball (){
+		GetComponent<AudioSource> ().Play ();
 		Instantiate (ball, transform.position, Quaternion.identity);
 	}
 }

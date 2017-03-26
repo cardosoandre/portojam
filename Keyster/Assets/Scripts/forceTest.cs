@@ -38,6 +38,8 @@ public class forceTest : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (action) && ready) {
+			GetComponent<AudioSource> ().pitch = Random.Range (0.9f, 1.2f);
+			GetComponent<AudioSource> ().Play ();
 			text.GetComponent<Animator> ().SetTrigger ("action");
 			finger.GetComponent<Animator> ().SetTrigger ("action");
 			rb.AddForce (transform.up * 1600);

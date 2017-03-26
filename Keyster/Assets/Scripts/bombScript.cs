@@ -53,6 +53,7 @@ public class bombScript : MonoBehaviour {
 
 	void Red()
 	{
+		GetComponent<AudioSource> ().Play ();
 		gameObject.GetComponent<MeshRenderer> ().material.color = Color.red;
 	}
 
@@ -65,6 +66,7 @@ public class bombScript : MonoBehaviour {
 	{
 
 	}
+
 
 	void OnTriggerStay(Collider other)
 	{
