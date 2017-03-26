@@ -70,6 +70,7 @@ public class bombScript : MonoBehaviour {
 	{
 		if (other.gameObject.CompareTag ("ground")) {
 			if (shouldExplode) {
+				Camera.main.GetComponent<cameraShake> ().shakeScreen ();
 				Instantiate (explosion, gameObject.transform.position, Quaternion.identity);
 				other.gameObject.GetComponentInParent<keyCodeScript> ().Disable ();
 				Destroy (gameObject);
