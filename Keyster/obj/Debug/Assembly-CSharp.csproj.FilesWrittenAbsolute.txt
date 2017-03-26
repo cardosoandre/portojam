@@ -19,3 +19,5 @@
 /Users/matheusberger/Documents/portojam/Keyster/Temp/bin/Debug/Assembly-CSharp.dll
 /Users/matheusberger/Documents/portojam/Keyster/obj/Debug/Assembly-CSharp.dll
 /Users/matheusberger/Documents/portojam/Keyster/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/matheusberger/Documents/portojam/Keyster/Temp/bin/Debug/Assembly-CSharp-firstpass.dll
+/Users/matheusberger/Documents/portojam/Keyster/Temp/bin/Debug/Assembly-CSharp-firstpass.dll.mdb
