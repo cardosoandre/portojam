@@ -6,16 +6,18 @@ public class forceTest : MonoBehaviour {
 
 	private Rigidbody rb; 
 	private KeyCode action;
-	public GameObject parent;
 	private Team team;
 	private Team enemy;
 	private GameManager gm;
 	private Transform pos;
 
+	public bool ready;
+	public GameObject parent;
 	// Use this for initialization
 	void Start () {
 
 		GetComponent<MeshRenderer> ().enabled = false;
+		ready = true;
 
 		action = parent.GetComponent<keyCodeScript> ().action;
 		rb = GetComponent<Rigidbody> ();
@@ -35,9 +37,10 @@ public class forceTest : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (action)) {
+		if (Input.GetKeyDown (action) && ready) {
 			GetComponent<MeshRenderer> ().enabled = true;
 			rb.AddForce (transform.up * 1600);
+			gameObject.GetComponentInParent<keyCodeScript> ().Blink ();
 			Invoke ("Mesh", 0.2f);
 		}
 	}
@@ -52,11 +55,17 @@ public class forceTest : MonoBehaviour {
 			{
 				gm.Score (enemy.id);
 			}
+			ready = false;
+		}
+		if (other.gameObject.CompareTag ("playerBase")) {
+			ready = true;
 		}
 	}
 
 	void OnCollision(Collision other){
 		other.gameObject.GetComponent<Rigidbody> ().AddForce (Vector3.right * 20);
+
+
 	}
 
 	void Mesh(){
