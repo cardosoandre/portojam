@@ -65,19 +65,21 @@ public class GameManager : MonoBehaviour {
 			if (winPoints <= teamONE.points) 
 			{
 				print ("team 1 won!");
-			}
-			if (winPoints <= teamTWO.points) 
+			} else if (winPoints <= teamTWO.points) 
 			{
 				print ("team 2 won!");
-			}
+			} 
 			break;
 		case WinCondition.time:
-			if (teamONE.points < teamTWO.points)
+			if (teamONE.points == teamTWO.points) 
 			{
-				print ("team 2 won!");
-			} else
+				print ("draw!");
+			} else if (teamTWO.points < teamONE.points) 
 			{
 				print ("team 1 won!");
+			} else 
+			{
+				print ("team 2 won!");
 			}
 			break;
 		}
@@ -96,6 +98,6 @@ public class GameManager : MonoBehaviour {
 			teamTWO.points++;
 		}
 
-		Reset();
+//		Reset();
 	}
 }

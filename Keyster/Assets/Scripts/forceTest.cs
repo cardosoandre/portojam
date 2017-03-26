@@ -10,6 +10,8 @@ public class forceTest : MonoBehaviour {
 	private Team enemy;
 	private GameManager gm;
 	private Transform pos;
+	private bool broken;
+
 	public GameObject finger, text; 
 
 	public bool ready;
@@ -17,6 +19,7 @@ public class forceTest : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		broken = false;
 		ready = true;
 
 		action = parent.GetComponent<keyCodeScript> ().action;
@@ -37,19 +40,21 @@ public class forceTest : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (action) && ready) {
-			GetComponent<AudioSource> ().pitch = Random.Range (0.9f, 1.2f);
-			GetComponent<AudioSource> ().Play ();
-			text.GetComponent<Animator> ().SetTrigger ("action");
-			finger.GetComponent<Animator> ().SetTrigger ("action");
-			rb.AddForce (transform.up * 1600);
-			gameObject.GetComponentInParent<keyCodeScript> ().Blink ();
+		if (!broken) 
+		{
+			if (Input.GetKeyDown (action) && ready) {
+				text.GetComponent<Animator> ().SetTrigger ("action");
+				finger.GetComponent<Animator> ().SetTrigger ("action");
+				rb.AddForce (transform.up * 1600);
+				gameObject.GetComponentInParent<keyCodeScript> ().Blink ();
+			}
 		}
 	}
 		
 	void OnCollisionEnter(Collision other)
 	{
 		if (other.gameObject.CompareTag ("ball")) {
+			
 			ready = false;
 		}
 		if (other.gameObject.CompareTag ("playerBase")) {
@@ -60,10 +65,11 @@ public class forceTest : MonoBehaviour {
 	public void Disable()
 	{
 		gm.Score (enemy.id);
-		this.enabled = false;
+		broken = true;
 	}
 
-	void OnCollision(Collision other){
+	void OnTriggerStay(Collider other)
+	{
 		other.gameObject.GetComponent<Rigidbody> ().AddForce (Vector3.right * 20);
 	}
 
