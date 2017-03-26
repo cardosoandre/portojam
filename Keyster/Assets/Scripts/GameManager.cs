@@ -25,9 +25,19 @@ public class Team
 
 public class GameManager : MonoBehaviour {
 
+	public enum WinCondition
+	{
+		time,
+		score
+	};
+
 	public Team teamONE;
 	public Team teamTWO;
 
+	public WinCondition winCond;
+
+	public float time;
+	public int winPoints;
 	public int maxNumOfTouches;
 	public KeyCode[] teamOneKeys;
 	public KeyCode[] teamTwoKeys;
@@ -45,8 +55,32 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update () 
+	{
+		time = time - Time.deltaTime;
+
+		switch (winCond) 
+		{
+		case WinCondition.score:
+			if (winPoints <= teamONE.points) 
+			{
+				print ("team 1 won!");
+			}
+			if (winPoints <= teamTWO.points) 
+			{
+				print ("team 2 won!");
+			}
+			break;
+		case WinCondition.time:
+			if (teamONE.points < teamTWO.points)
+			{
+				print ("team 2 won!");
+			} else
+			{
+				print ("team 1 won!");
+			}
+			break;
+		}
 	}
 
 	void Reset ()
