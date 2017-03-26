@@ -59,6 +59,10 @@ public class GameManager : MonoBehaviour {
 	{
 		time = time - Time.deltaTime;
 
+		var timerLabel = GameObject.FindGameObjectWithTag ("timer");
+		int seconds = (int)time;
+		timerLabel.GetComponent<TextMesh> ().text = seconds.ToString ();
+
 		switch (winCond) 
 		{
 		case WinCondition.score:
